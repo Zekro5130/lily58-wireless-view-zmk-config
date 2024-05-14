@@ -7,25 +7,25 @@
 
         default {
             bindings = <
-&kp ESC         &mt F1 NUMBER_1  &mt F2 NUMBER_2  &mt F3 NUMBER_3   &mt F4 NUMBER_4  &mt F5 NUMBER_5                           &mt F6 NUMBER_6  &mt F7 NUMBER_7  &mt F8 NUMBER_8  &mt F9 NUMBER_9  &mt F10 NUMBER_0  &mt F11 DELETE
-&kp TILDE       &kp Q            &kp W            &kp E             &kp R            &kp T                                     &kp Y            &kp U            &kp I            &kp O            &kp P             &mt F12 HOME
-&kp TAB         &kp A            &kp S            &kp D             &kp F            &kp G                                     &kp H            &kp J            &kp K            &kp L            &kp SEMI          &kp PG_UP
-&kp LEFT_SHIFT  &kp Z            &kp X            &kp C             &kp V            &kp B            &kp LEFT_ALT    &to 1    &kp N            &kp M            &kp COMMA        &kp DOT          &kp FSLH          &kp PAGE_DOWN
-                                                  &kp LEFT_CONTROL  &kp LEFT_WIN     &kp BSPC         &kp SPACE       &kp RET  &trans           &trans           &trans
+&kp ESC         &kp N1  &kp N2  &kp N3            &kp N4        &kp N5                             &kp N6  &kp N7  &kp N8     &kp N9   &kp N0    &kp MINUS
+&kp GRAVE       &kp Q   &kp W   &kp E             &kp R         &kp T                              &kp Y   &kp U   &kp I      &kp O    &kp P     &kp EQUAL
+&kp TAB         &kp A   &kp S   &kp D             &kp F         &kp G                              &kp H   &kp J   &kp K      &kp L    &kp SEMI  &kp SQT
+&kp LEFT_SHIFT  &kp Z   &kp X   &kp C             &kp V         &kp B     &kp LEFT_ALT    &to 1    &kp N   &kp M   &kp COMMA  &kp DOT  &kp FSLH  &kp BACKSLASH
+                                &kp LEFT_CONTROL  &kp LEFT_WIN  &kp BSPC  &kp SPACE       &kp RET  &mo 1   &mo 2   &mo 3
             >;
         };
 
         function {
             bindings = <
-&kp F1  &kp F2  &kp F3          &kp F4          &kp F5           &kp F6                    &kp F7           &kp F8           &kp F9           &kp F10          &kp F11        &kp F12
-&trans  &trans  &trans          &trans          &trans           &trans                    &trans           &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_DIVIDE  &kp KP_MULTIPLY
-&trans  &trans  &trans          &kp UP_ARROW    &trans           &trans                    &trans           &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_PLUS    &kp KP_SUBTRACT
-&trans  &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans  &to 0     &to 2   &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_ENTER   &trans
-                                &trans          &trans           &trans  &trans    &trans  &trans           &trans           &trans
+&kp F1      &kp F2         &kp F3            &kp F4          &kp F5             &kp F6                    &kp F7           &kp F8           &kp F9           &kp F10          &kp F11        &kp F12
+&kp DELETE  &trans         &trans            &trans          &trans             &trans                    &trans           &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_DIVIDE  &kp KP_MULTIPLY
+&kp HOME    &kp PAGE_UP    &kp LEFT_BRACKET  &kp UP_ARROW    &kp RIGHT_BRACKET  &trans                    &trans           &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_PLUS    &kp KP_SUBTRACT
+&kp END     &kp PAGE_DOWN  &kp LEFT_ARROW    &kp DOWN_ARROW  &kp RIGHT_ARROW    &trans  &to 0     &to 2   &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_ENTER   &trans
+                                             &trans          &trans             &trans  &trans    &trans  &trans           &trans           &trans
             >;
         };
 
-        layer_2 {
+        colemak {
             bindings = <
 &kp ESC    &kp N1  &kp N2  &kp N3     &kp N4    &kp N5                          &kp N6  &kp N7  &kp N8     &kp N9   &kp N0    &trans
 &trans     &kp Q   &kp W   &kp F      &kp P     &kp G                           &kp J   &kp L   &kp U      &kp Y    &kp SEMI  &trans
@@ -53,6 +53,15 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &to 0     &trans  &trans  &trans  &trans  &trans  &trans  &trans
                         &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
             >;
+        };
+    };
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        Layer4 {
+            if-layers = <1 2>;
+            then-layer = <4>;
         };
     };
 };
